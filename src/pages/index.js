@@ -1,3 +1,3 @@
 import React from "react"
-
-export default () => <div>Hello world!</div>
+import TopicList from '../components/TopicList'
+export default () => <TopicList />
