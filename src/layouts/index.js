@@ -5,6 +5,7 @@ import GlobalStyles from '../styles/GlobalStyles'
 import DarkModeProvider from '../context/DarkMode'
 import ThemeProvider from '../styles/ThemeProvider'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 
 const Container = styled.div`
   display: flex;
@@ -17,10 +18,13 @@ const Container = styled.div`
 
 const Main = styled.main`
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0.25rem;
+
+  @media ${({ theme }) => theme.isLargeScreen} {
+    padding: 2rem;
+  }
 `
 
 const Layout = ({ children }) => (
@@ -31,6 +35,7 @@ const Layout = ({ children }) => (
       <Container>
         <Nav />
         <Main>{children}</Main>
+        <Footer />
       </Container>
     </ThemeProvider>
   </DarkModeProvider>

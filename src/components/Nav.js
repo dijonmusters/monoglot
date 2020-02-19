@@ -1,54 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 import DarkModeSwitcher from './DarkModeSwitcher'
+import Link from './styled/Link'
 
 const Navigation = styled.nav`
   padding: 2rem;
-  border-bottom: 1px solid ${props => props.theme.separator};
-  color: ${props => props.theme.text};
+  border-bottom: 1px solid ${({ theme }) => theme.separator};
+  color: ${({ theme }) => theme.text};
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
 
-const UnstyledLink = styled.a`
-  &:visited,
-  &:hover,
-  &:active {
-    font-style: inherit;
-    color: inherit;
-    background-color: transparent;
-    font-size: inherit;
-    text-decoration: none;
-    font-variant: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    font-family: inherit;
-  }
-`
-
-const Link = styled(UnstyledLink)`
-  font-size: 2rem;
-  font-weight: 500;
-  &:visited,
-  &:hover,
-  &:active {
-    font-style: inherit;
-    color: inherit;
-    background-color: transparent;
-    text-decoration: none;
-    font-variant: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    font-family: inherit;
-  }
+const Small = styled.span`
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.7;
 `
 
 const Nav = () => {
   return (
     <Navigation>
       <div>
-        <Link href="/">Monoglot</Link>
+        <Link href="/">
+          <h1>
+            Monoglot <Small>A JavaScript blog</Small>
+          </h1>
+        </Link>
       </div>
       <div>
         <DarkModeSwitcher />

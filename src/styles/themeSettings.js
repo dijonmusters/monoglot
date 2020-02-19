@@ -1,4 +1,13 @@
+const screenSizes = {
+  large: '500px',
+}
+
+const common = {
+  isLargeScreen: `(min-width: ${screenSizes.large})`,
+}
+
 const lightTheme = {
+  ...common,
   backgroundColor: '#E2E2E2',
   text: '#363537',
   toggleBorder: '#FFF',
@@ -7,6 +16,7 @@ const lightTheme = {
 }
 
 const darkTheme = {
+  ...common,
   backgroundColor: '#363537',
   text: '#FAFAFA',
   toggleBorder: '#6B8096',

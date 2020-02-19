@@ -1,7 +1,7 @@
 import React from 'react'
 import { Sun, Moon } from 'react-feather'
 import styled from 'styled-components'
-import useDarkMode from './hooks/useDarkMode'
+import useDarkMode from '../hooks/useDarkMode'
 
 const Container = styled.div`
   display: flex;
