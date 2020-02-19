@@ -20,7 +20,7 @@ const Main = styled.main`
   flex: 1;
   max-width: 768px;
   margin: 0 auto;
-  padding: 0.25rem;
+  padding: 2rem 0.25rem;
 
   @media ${({ theme }) => theme.isLargeScreen} {
     padding: 2rem;

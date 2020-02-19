@@ -9,8 +9,10 @@ const ALL_DOC_NAMES = graphql`
           id
           frontmatter {
             title
-            slug
             tags
+          }
+          fields {
+            slug
           }
         }
       }
@@ -22,11 +24,11 @@ const Topic = ({ tag }) => {
   const data = useStaticQuery(ALL_DOC_NAMES)
   const docs = data.allMdx.edges
     .map(d => d.node)
-    .filter(({ frontmatter: { tags }}) => tags && tags.includes(tag))
+    .filter(({ frontmatter: { tags } }) => tags && tags.includes(tag))
 
   return docs.map(d => (
     <p key={d.id}>
-      <a href={d.frontmatter.slug}>{d.frontmatter.title}</a>
+      <a href={d.fields.slug}>{d.frontmatter.title}</a>
     </p>
   ))
 }

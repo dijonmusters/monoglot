@@ -1,16 +1,52 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import { format } from 'date-fns'
+import Title from '../components/styled/Title'
+import Link from '../components/styled/Link'
+
+const Article = styled.div`
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`
+
+const SameLine = styled.div`
+  display: flex;
+  align-items: flex-end;
+`
+
+const StyledDate = styled.p`
+  margin-left: 0.25rem;
+  margin-bottom: 0.125rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+`
+
+const Excerpt = styled.p`
+  margin-top: 0.25rem;
+`
 
 const renderArticle = ({
   id,
-  frontmatter: { title, date, slug, tags },
+  frontmatter: { title, date, tags },
+  fields: { slug },
   excerpt,
 }) => {
+  const formattedDate = format(new Date(date), 'do MMM yyyy')
+
   return (
-    <div key={id}>
-      <h2>{title}</h2>
-      <p>{excerpt}</p>
-    </div>
+    <Article key={id}>
+      <Link href={slug}>
+        <SameLine>
+          <Title>{title}</Title>
+          <StyledDate>{formattedDate}</StyledDate>
+        </SameLine>
+        <Excerpt>{excerpt}</Excerpt>
+      </Link>
+    </Article>
   )
 }
 
@@ -18,11 +54,7 @@ const Index = ({
   data: {
     allMdx: { edges },
   },
-}) => {
-  const articles = edges.map(a => a.node)
-  console.log(articles)
-  return articles.map(renderArticle)
-}
+}) => edges.map(a => a.node).map(renderArticle)
 
 export const query = graphql`
   query AllArticles {
@@ -32,8 +64,10 @@ export const query = graphql`
           frontmatter {
             title
             date
-            slug
             tags
+          }
+          fields {
+            slug
           }
           timeToRead
           excerpt

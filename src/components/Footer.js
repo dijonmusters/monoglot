@@ -4,10 +4,6 @@ import { Twitter, GitHub, Linkedin } from 'react-feather'
 import Link from './styled/Link'
 
 const StickyFooter = styled.footer`
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;

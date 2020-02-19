@@ -6,9 +6,15 @@ import useDarkMode from '../hooks/useDarkMode'
 const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media ${({ theme }) => theme.isLargeScreen} {
+    margin-top: 0;
   }
 `
 
