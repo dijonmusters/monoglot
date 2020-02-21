@@ -14,15 +14,22 @@ const Article = styled.div`
 `
 
 const SameLine = styled.div`
-  display: flex;
-  align-items: flex-end;
+  display: block;
+
+  @media ${({ theme }) => theme.isLargeScreen} {
+    display: flex;
+    align-items: flex-end;
+  }
 `
 
 const StyledDate = styled.p`
-  margin-left: 0.25rem;
-  margin-bottom: 0.125rem;
   font-size: 0.75rem;
   opacity: 0.7;
+
+  @media ${({ theme }) => theme.isLargeScreen} {
+    margin-left: 0.25rem;
+    margin-bottom: 0.125rem;
+  }
 `
 
 const Excerpt = styled.p`

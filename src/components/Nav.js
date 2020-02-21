@@ -21,7 +21,7 @@ const Navigation = styled.nav`
 
 const Title = styled.span`
   margin-right: 0.5rem;
-  color: ${({ theme }) => theme.textHighlight};
+  color: ${({ theme }) => theme.highlightColor};
 `
 
 const Small = styled.span`

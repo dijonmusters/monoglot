@@ -1,11 +1,13 @@
 import React from 'react'
 import { Normalize } from 'styled-normalize'
 import styled from 'styled-components'
+import { MDXProvider } from '@mdx-js/react'
 import GlobalStyles from '../styles/GlobalStyles'
 import DarkModeProvider from '../context/DarkMode'
 import ThemeProvider from '../styles/ThemeProvider'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import { components } from '../styles/mdxStyles'
 
 const Container = styled.div`
   display: flex;
@@ -30,13 +32,15 @@ const Main = styled.main`
 const Layout = ({ children }) => (
   <DarkModeProvider>
     <ThemeProvider>
-      <Normalize />
-      <GlobalStyles />
-      <Container>
-        <Nav />
-        <Main>{children}</Main>
-        <Footer />
-      </Container>
+      <MDXProvider components={components}>
+        <Normalize />
+        <GlobalStyles />
+        <Container>
+          <Nav />
+          <Main>{children}</Main>
+          <Footer />
+        </Container>
+      </MDXProvider>
     </ThemeProvider>
   </DarkModeProvider>
 )

@@ -9,21 +9,25 @@ const common = {
 const lightTheme = {
   ...common,
   backgroundColor: '#E2E2E2',
+  backgroundColorLight: '#E9E9E9',
   text: '#363537',
-  textHighlight: '#5551FF',
-  toggleBorder: '#FFF',
-  gradient: 'linear-gradient(#39598A, #79D7ED)',
+  textLighter: '#666567',
+  textLight: '#868587',
+  highlightColor: '#5551FF',
   separator: '#bbb',
+  isLightMode: true,
 }
 
 const darkTheme = {
   ...common,
   backgroundColor: '#363537',
+  backgroundColorLight: 'rgb(74, 73, 75)',
   text: '#FAFAFA',
-  textHighlight: '#aaf0e3',
-  toggleBorder: '#6B8096',
-  gradient: 'linear-gradient(#091236, #1E215D)',
+  textLighter: '#CACACA',
+  textLight: '#AAAAAA',
+  highlightColor: '#aaf0e3',
   separator: '#bbb',
+  isDarkMode: true,
 }
 
 export { lightTheme, darkTheme }
