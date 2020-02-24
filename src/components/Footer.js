@@ -20,10 +20,16 @@ const Icons = styled.div`
   }
 `
 
+const Name = styled.span`
+  color: ${({ theme }) => theme.highlightColor};
+`
+
 const Footer = () => {
   return (
     <StickyFooter>
-      <p>Written by Jon Meyers</p>
+      <p>
+        Written by <Name>Jon Meyers</Name>
+      </p>
       <Icons>
         <Link href="https://github.com/dijonmusters/" target="_blank">
           <GitHub />

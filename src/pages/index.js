@@ -68,6 +68,7 @@ export const query = graphql`
     allMdx {
       edges {
         node {
+          id
           frontmatter {
             title
             date

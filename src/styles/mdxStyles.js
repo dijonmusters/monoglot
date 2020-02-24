@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
-import lightTheme from 'prism-react-renderer/themes/nightOwlLight'
+import lightTheme from 'prism-react-renderer/themes/github'
 import { copyToClipboard } from '../utils/copyToClipboard'
 
 const getTheme = theme => {
+  console.log(nightOwl)
   return theme.isDarkMode
     ? {
         ...nightOwl,
