@@ -11,7 +11,7 @@ const ALL_TOPICS = graphql`
 
 const TopicList = () => {
   const data = useStaticQuery(ALL_TOPICS)
-  const topics = data.allMdx.distinct;
+  const topics = data.allMdx.distinct
 
   return topics.map(t => (
     <p key={t}>

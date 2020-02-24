@@ -5,6 +5,9 @@ const ALL_ARTICLES = `{
   allMdx {
     edges {
       node {
+        frontmatter {
+          title
+        }
         fields {
           slug
         }
@@ -25,11 +28,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  data.allMdx.edges.forEach(({ node }) => {
+  const articles = data.allMdx.edges.map(({ node }) => node)
+
+  articles.forEach((article, index) => {
+    const next = index === articles.length - 1 ? null : articles[index + 1]
+    const previous = index === 0 ? null : articles[index - 1]
+
     createPage({
-      path: node.fields.slug,
+      path: article.fields.slug,
       component: Article,
-      context: {},
+      context: { previous, next },
     })
   })
 

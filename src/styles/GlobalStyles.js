@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     a {
-      color: ${theme.text};
+      color: ${theme.highlightColor};
       text-decoration: none;
       cursor: pointer;
 

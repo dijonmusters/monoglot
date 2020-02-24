@@ -3,6 +3,7 @@ import styled, { ThemeContext } from 'styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
 import lightTheme from 'prism-react-renderer/themes/github'
+import { Copy } from 'react-feather'
 import { copyToClipboard } from '../utils/copyToClipboard'
 
 const getTheme = theme => {
@@ -19,19 +20,25 @@ const getTheme = theme => {
 }
 
 const CopyCode = styled.button`
+  display: flex;
   position: absolute;
   right: 0.25rem;
   top: 0.25rem;
   border: 0;
   border-radius: 3px;
   color: ${({ theme }) => theme.textLight};
-  padding: 0.25rem 1rem;
+  padding: 0.5rem;
   background-color: ${({ theme }) => theme.backgroundColor};
 
   &:hover {
     cursor: pointer;
     color: ${({ theme }) => theme.text};
   }
+`
+
+const CopyIcon = styled(Copy)`
+  height: 1rem;
+  width: 1rem;
 `
 
 const P = styled.p`
@@ -100,7 +107,9 @@ const Code = ({ codeString, language, ...props }) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Pre className={className} style={style}>
-          <CopyCode onClick={handleClick}>Copy</CopyCode>
+          <CopyCode onClick={handleClick}>
+            <CopyIcon />
+          </CopyCode>
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })}>
               <LineNo>{i + 1}</LineNo>

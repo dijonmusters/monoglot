@@ -23,6 +23,7 @@ const SameLine = styled.div`
 `
 
 const StyledDate = styled.p`
+  flex-shrink: 0;
   font-size: 0.75rem;
   opacity: 0.7;
 
@@ -48,7 +49,7 @@ const renderArticle = ({
     <Article key={id}>
       <Link href={slug}>
         <SameLine>
-          <Title>{title}</Title>
+          <Title noWrap>{title}</Title>
           <StyledDate>{formattedDate}</StyledDate>
         </SameLine>
         <Excerpt>{excerpt}</Excerpt>
@@ -65,7 +66,7 @@ const Index = ({
 
 export const query = graphql`
   query AllArticles {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           id
