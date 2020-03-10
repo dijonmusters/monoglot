@@ -4,7 +4,8 @@ const Link = styled.a`
   &:visited,
   &:hover,
   &:active {
-    color: inherit;
+    color: ${props =>
+      props.highlight ? props.theme.highlightColor : 'inherit'};
     text-decoration: none;
     font-weight: inherit;
     font-family: inherit;

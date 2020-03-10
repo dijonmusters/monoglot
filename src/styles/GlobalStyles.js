@@ -19,18 +19,12 @@ const GlobalStyles = createGlobalStyle`
     }
 
     a {
-      color: ${theme.highlightColor};
       text-decoration: none;
       cursor: pointer;
 
       :hover {
         text-decoration: underline;
       }
-    }
-
-    ::selection {
-      background-color: ${theme.highlightColor};
-      color: ${theme.text};
     }
 
     p,

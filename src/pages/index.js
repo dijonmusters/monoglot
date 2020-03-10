@@ -26,10 +26,12 @@ const StyledDate = styled.p`
   flex-shrink: 0;
   font-size: 0.75rem;
   opacity: 0.7;
+  padding-bottom: 0;
 
   @media ${({ theme }) => theme.isLargeScreen} {
     margin-left: 0.25rem;
     margin-bottom: 0.125rem;
+    padding-bottom: 0.25rem;
   }
 `
 
@@ -49,7 +51,9 @@ const renderArticle = ({
     <Article key={id}>
       <Link href={slug}>
         <SameLine>
-          <Title noWrap>{title}</Title>
+          <Title noWrap naked highlight>
+            {title}
+          </Title>
           <StyledDate>{formattedDate}</StyledDate>
         </SameLine>
         <Excerpt>{excerpt}</Excerpt>

@@ -16,13 +16,17 @@ const DarkModeProvider = ({ children }) => {
 
   useEffect(() => {
     const localTheme = localStorage.getItem('theme')
-    matchMedia &&
-    matchMedia('(prefers-color-scheme: dark)').matches &&
-    !localTheme
-      ? setMode('dark')
-      : localTheme
-      ? setTheme(localTheme)
-      : setMode('light')
+
+    if (localTheme) {
+      setTheme(localTheme)
+    } else if (
+      matchMedia &&
+      matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      setMode('dark')
+    } else {
+      setMode('light')
+    }
   }, [])
 
   const exposed = {

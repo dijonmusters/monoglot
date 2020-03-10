@@ -20,12 +20,12 @@ const Container = styled.div`
 
 const Main = styled.main`
   flex: 1;
-  max-width: 768px;
-  margin: 0 auto;
   padding: 2rem 0.25rem;
 
   @media ${({ theme }) => theme.isLargeScreen} {
+    max-width: 768px;
     padding: 2rem;
+    margin: 0 auto;
   }
 `
 

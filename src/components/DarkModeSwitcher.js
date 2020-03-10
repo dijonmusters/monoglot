@@ -50,6 +50,7 @@ const Dot = styled.div`
 const DarkModeSwitcher = () => {
   const { toggle, theme } = useDarkMode()
   const isDark = theme === 'dark'
+
   return (
     <Container>
       <Icon isActive={!isDark} onClick={() => isDark && toggle()}>
