@@ -66,7 +66,16 @@ const Index = ({
   data: {
     allMdx: { edges },
   },
-}) => edges.map(a => a.node).map(renderArticle)
+}) => {
+  const now = new Date()
+  const releasedArticles = edges
+    .map(a => a.node)
+    .filter(a => {
+      const releaseDate = new Date(a.frontmatter.date)
+      return releaseDate <= now
+    })
+  return releasedArticles.map(renderArticle)
+}
 
 export const query = graphql`
   query AllArticles {

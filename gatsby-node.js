@@ -2,7 +2,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 const ALL_ARTICLES = `{
-  allMdx {
+  allMdx(sort: { fields: frontmatter___date, order: DESC }) {
     edges {
       node {
         frontmatter {
@@ -31,8 +31,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const articles = data.allMdx.edges.map(({ node }) => node)
 
   articles.forEach((article, index) => {
-    const next = index === articles.length - 1 ? null : articles[index + 1]
-    const previous = index === 0 ? null : articles[index - 1]
+    const previous = index === articles.length - 1 ? null : articles[index + 1]
+    const next = index === 0 ? null : articles[index - 1]
 
     createPage({
       path: article.fields.slug,
