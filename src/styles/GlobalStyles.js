@@ -25,6 +25,10 @@ const GlobalStyles = createGlobalStyle`
       :hover {
         text-decoration: underline;
       }
+
+      :visited {
+        color: inherit;
+      }
     }
 
     p,
