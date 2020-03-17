@@ -29,6 +29,29 @@ const InlineCode = styled.span`
   border-radius: 4px;
 `
 
+const Image = styled.img`
+  display: block;
+  margin: 0 auto;
+`
+
+const Link = styled.a`
+  color: ${({ theme }) => theme.highlightColor};
+
+  &:visited {
+    color: ${({ theme }) => theme.highlightColor};
+  }
+`
+
+const Iframe = styled.iframe`
+  width: 100%;
+  height: 200px;
+  margin: 1rem 0;
+
+  @media ${({ theme }) => theme.isLargeScreen} {
+    height: 300px;
+  }
+`
+
 const components = {
   p: props => <P {...props} />,
   h1: props => <H1 {...props} />,
@@ -37,6 +60,9 @@ const components = {
   blockquote: props => <Blockquote {...props} />,
   pre: props => <Code {...props} />,
   inlineCode: props => <InlineCode {...props} />,
+  img: props => <Image {...props} />,
+  a: props => <Link {...props} />,
+  iframe: props => <Iframe {...props} />,
 }
 
 export { components }
