@@ -33,21 +33,22 @@ const Title = styled.span`
   text-overflow: ellipsis;
 `
 
-const NextPrev = ({ next, previous }) => (
-  <NavigationPanel>
-    {previous && (
-      <NavLink href={previous.fields.slug}>
-        <ChevronLeft />
-        <Title>{previous.frontmatter.title}</Title>
-      </NavLink>
-    )}
-    {next && (
-      <NavLink href={next.fields.slug} alignment="end" right>
-        <Title>{next.frontmatter.title}</Title>
-        <ChevronRight />
-      </NavLink>
-    )}
-  </NavigationPanel>
-)
+const NextPrev = ({ next, previous }) =>
+  (next || previous) && (
+    <NavigationPanel>
+      {previous && (
+        <NavLink href={previous.fields.slug}>
+          <ChevronLeft />
+          <Title>{previous.frontmatter.title}</Title>
+        </NavLink>
+      )}
+      {next && (
+        <NavLink href={next.fields.slug} alignment="end" right>
+          <Title>{next.frontmatter.title}</Title>
+          <ChevronRight />
+        </NavLink>
+      )}
+    </NavigationPanel>
+  )
 
 export default NextPrev
