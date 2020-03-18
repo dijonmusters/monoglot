@@ -7,6 +7,7 @@ import DarkModeProvider from '../context/DarkMode'
 import ThemeProvider from '../styles/ThemeProvider'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Favicon from '../components/Favicon'
 import { components } from '../styles/mdxStyles'
 
 const Container = styled.div`
@@ -36,6 +37,7 @@ const Layout = ({ children }) => (
       <MDXProvider components={components}>
         <Normalize />
         <GlobalStyles />
+        <Favicon />
         <Container>
           <Nav />
           <Main>{children}</Main>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 import Title from '../components/styled/Title'
@@ -74,7 +75,14 @@ const Index = ({
       const releaseDate = new Date(a.frontmatter.date)
       return releaseDate <= now
     })
-  return releasedArticles.map(renderArticle)
+  return (
+    <>
+      <Helmet>
+        <title>Monoglot - Blog list</title>
+      </Helmet>
+      {releasedArticles.map(renderArticle)}
+    </>
+  )
 }
 
 export const query = graphql`

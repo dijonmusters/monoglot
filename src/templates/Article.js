@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import { format } from 'date-fns'
@@ -24,6 +25,9 @@ const Article = ({
 
   return (
     <>
+      <Helmet>
+        <title>Monoglot - {title}</title>
+      </Helmet>
       <Title naked>{title}</Title>
       <StyledDate>{formattedDate}</StyledDate>
       <MDXRenderer>{body}</MDXRenderer>

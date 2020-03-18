@@ -7,6 +7,8 @@ module.exports = {
         path: `${__dirname}/src/articles/`,
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-layout`,

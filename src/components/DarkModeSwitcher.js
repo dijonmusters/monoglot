@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { Sun, Moon } from 'react-feather'
 import styled from 'styled-components'
 import useDarkMode from '../hooks/useDarkMode'
@@ -54,13 +53,6 @@ const DarkModeSwitcher = () => {
 
   return (
     <>
-      <Helmet>
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href={`favicon-${isDark ? 'dark' : 'light'}.ico`}
-        />
-      </Helmet>
       <Container>
         <Icon isActive={!isDark} onClick={() => isDark && toggle()}>
           <Sun />

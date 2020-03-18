@@ -251,7 +251,9 @@ export default Skaters
 
 Awesome! Now our users will see the cached version immediately, and receive any updates once the API responds. Here is a gif demonstrating what this looks like.
 
-![caching-gif](/images/simple-caching.gif)
+import img from './images/simple-caching.gif'
+
+<img src={img} />
 
 As you can see, we can't provide the cached version the first time our users visit the page, but everytime they come back to see those sweet sweet skater stats, we can make the experience feel much more responsive!
 
