@@ -32,6 +32,7 @@ const InlineCode = styled.span`
 const Image = styled.img`
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 `
 
 const Link = styled.a`
