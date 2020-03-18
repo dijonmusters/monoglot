@@ -76,12 +76,12 @@ const Index = ({
       return releaseDate <= now
     })
   return (
-    <div>
+    <>
       <Helmet>
         <title>Monoglot - Blog list</title>
       </Helmet>
       {releasedArticles.map(renderArticle)}
-    </div>
+    </>
   )
 }
 
