@@ -51,7 +51,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === `Mdx`) {
-    const value = `/blog${createFilePath({ node, getNode })}`
+    const value = `/articles${createFilePath({ node, getNode })}`
     createNodeField({
       name: `slug`,
       node,
