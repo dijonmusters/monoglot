@@ -24,7 +24,7 @@ const Article = ({
   const formattedDate = format(new Date(date), 'do MMM yyyy')
 
   return (
-    <>
+    <div>
       <Helmet>
         <title>Monoglot - {title}</title>
       </Helmet>
@@ -32,7 +32,7 @@ const Article = ({
       <StyledDate>{formattedDate}</StyledDate>
       <MDXRenderer>{body}</MDXRenderer>
       <NextPrev next={next} previous={previous} />
-    </>
+    </div>
   )
 }
 
