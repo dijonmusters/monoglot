@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://monoglot.dev`,
+    title: 'Monoglot',
+    description: 'A JavaScript blog',
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -24,5 +29,6 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-feed-mdx`,
   ],
 }
