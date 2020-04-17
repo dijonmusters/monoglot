@@ -56,7 +56,7 @@ module.exports = {
                   .replace(/src="\//g, `src="${siteUrl}/`)
                   .replace(/"\/static\//g, `"${siteUrl}/static/`)
                   .replace(/,\s*\/static\//g, `,${siteUrl}/static/`)
-                  .replace(/static\//g, `"${siteUrl}/static/`)
+                  .replace(/static\//g, `${siteUrl}/static/`)
                   .replace(/,\s*static\//g, `,${siteUrl}/static/`)
 
                 return Object.assign({}, article.frontmatter, {
