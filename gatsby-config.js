@@ -48,13 +48,22 @@ module.exports = {
           {
             serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(({ node: article }) => {
+                const { siteUrl } = site.siteMetadata
+                const { html } = article
+
+                const fixedHtml = html
+                  .replace(/href="\//g, `href="${siteUrl}/`)
+                  .replace(/src="\//g, `src="${siteUrl}/`)
+                  .replace(/"\/static\//g, `"${siteUrl}/static/`)
+                  .replace(/,\s*\/static\//g, `,${siteUrl}/static/`)
+
                 return Object.assign({}, article.frontmatter, {
                   description: article.excerpt,
                   date: article.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   custom_elements: [
-                    { 'content:encoded': article.html },
+                    { 'content:encoded': fixedHtml },
                     { category: article.frontmatter.tags.join(',') },
                   ],
                 })
