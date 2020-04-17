@@ -29,6 +29,65 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-feed-mdx`,
+    {
+      resolve: `gatsby-plugin-feed-mdx`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(({ node: article }) => {
+                return Object.assign({}, article.frontmatter, {
+                  title: article.frontmatter.title,
+                  description: article.excerpt,
+                  date: article.frontmatter.date,
+                  url: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
+                  custom_elements: [
+                    {
+                      content: article.rawBody,
+                      category: article.frontmatter.tags.join(', '),
+                    },
+                  ],
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+                  edges {
+                    node {
+                      frontmatter {
+                        title
+                        date
+                        tags
+                      }
+                      fields {
+                        slug
+                      }
+                      excerpt
+                      rawBody
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Monoglot',
+            match: '^/articles/',
+          },
+        ],
+      },
+    },
   ],
 }
