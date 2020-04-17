@@ -39,6 +39,7 @@ module.exports = {
                 title
                 description
                 siteUrl
+                site_url: siteUrl
               }
             }
           }
@@ -48,15 +49,13 @@ module.exports = {
             serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(({ node: article }) => {
                 return Object.assign({}, article.frontmatter, {
-                  title: article.frontmatter.title,
+                  description: article.excerpt,
                   date: article.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   custom_elements: [
-                    {
-                      content: article.rawBody,
-                      category: article.frontmatter.tags.join(', '),
-                    },
+                    { 'content:encoded': article.html },
+                    { category: article.frontmatter.tags.join(', ') },
                   ],
                 })
               })
@@ -74,8 +73,8 @@ module.exports = {
                       fields {
                         slug
                       }
+                      html
                       excerpt
-                      rawBody
                     }
                   }
                 }
@@ -83,7 +82,6 @@ module.exports = {
             `,
             output: '/rss.xml',
             title: 'Monoglot',
-            match: '^/articles/',
           },
         ],
       },
