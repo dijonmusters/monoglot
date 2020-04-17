@@ -52,12 +52,8 @@ module.exports = {
                 const { html } = article
 
                 const fixedHtml = html
-                  .replace(/href="\//g, `href="${siteUrl}/`)
-                  .replace(/src="\//g, `src="${siteUrl}/`)
-                  .replace(/"\/static\//g, `"${siteUrl}/static/`)
-                  .replace(/,\s*\/static\//g, `,${siteUrl}/static/`)
-                  .replace(/static\//g, `${siteUrl}/static/`)
-                  .replace(/,\s*static\//g, `,${siteUrl}/static/`)
+                  .replace(/href="static\//g, `href="${siteUrl}/static/`)
+                  .replace(/src="static\//g, `src="${siteUrl}/static/`)
 
                 return Object.assign({}, article.frontmatter, {
                   description: article.excerpt,
@@ -66,7 +62,7 @@ module.exports = {
                   guid: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   custom_elements: [
                     { 'content:encoded': fixedHtml },
-                    { category: article.frontmatter.tags.join(',') },
+                    { tags: article.frontmatter.tags.join(', ') },
                   ],
                 })
               })
