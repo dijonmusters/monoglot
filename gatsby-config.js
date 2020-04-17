@@ -62,7 +62,7 @@ module.exports = {
                   guid: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   custom_elements: [
                     { 'content:encoded': fixedHtml },
-                    { category: article.frontmatter.tags.join(', ') },
+                    { category: article.frontmatter.tags },
                   ],
                 })
               })
