@@ -49,7 +49,6 @@ module.exports = {
               return allMdx.edges.map(({ node: article }) => {
                 return Object.assign({}, article.frontmatter, {
                   title: article.frontmatter.title,
-                  description: article.excerpt,
                   date: article.frontmatter.date,
                   url: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}${article.fields.slug}`,
