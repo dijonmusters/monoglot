@@ -1,97 +1,77 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's hello-world starter
-</h1>
+# Monoglot
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+A Javascript blog.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Getting Started
 
-## 🚀 Quick start
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-1.  **Create a Gatsby site.**
+### Prerequisites
 
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+NodeJS - visit ![Node.js Downloads page](https://nodejs.org/en/download/) and follow the download and install instructions.
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+Yarn - visit ![Yarn installation page](https://classic.yarnpkg.com/en/docs/install) and follow the download and install instructions.
 
-1.  **Start developing.**
+### Installing
 
-    Navigate into your new site’s directory and start it up.
+Clone the repository
 
-    ```shell
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+```
+git clone https://github.com/dijonmusters/monoglot.git
+```
 
-1.  **Open the source code and start editing!**
+Change into directory
 
-    Your site is now running at `http://localhost:8000`!
+```
+cd monoglot
+```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+Install dependencies
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+```
+yarn
+```
 
-## 🧐 What's inside?
+## Running in Development mode
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+Run in development mode
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+```
+yarn start
+```
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+Visit http://localhost:8000 to view blog.
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+Visit http://localhost:8000/__graphql to query graphql schema.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+## Running in Production mode
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+Build and serve the production application
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+```
+yarn start:prod
+```
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+Visit http://localhost:9000 to view production blog.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+## Deployment
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+Every commit pushed to master will trigger a rebuild and deployment.
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+## Contributing
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+In order to contribute bug fixes or features please follow this process:
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+1. Fork the repository
+2. Create a branch with the feature name - `git checkout -b new-feature`
+3. Commit and push changes to your fork
+4. Open PR to `master` branch in Monoglot repository - clearly explain what the change is and why
+5. We will review the PR and either request changes or use a squash merge to include your contribution
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+## Authors
 
-## 🎓 Learning Gatsby
+- **Jon Meyers** - _Project founder and contribution reviewer_ - [Dijon Musters](https://github.com/dijonmusters)
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+## License
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
