@@ -5,6 +5,7 @@ import Code from '../components/Code'
 
 const P = styled.p`
   margin: 1rem 0;
+  line-height: 1.5;
 `
 
 const H1 = styled.h1`
