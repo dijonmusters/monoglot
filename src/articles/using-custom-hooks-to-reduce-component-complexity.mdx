@@ -1,12 +1,20 @@
 ---
-title: Using custom hooks to simplify logic
-date: 2020-04-19
+title: Using custom hooks to reduce component complexity
+date: 2020-05-28
 tags: [react, hooks]
 ---
 
 This article continues on from where <a href="https://monoglot.dev/articles/simple-request-caching-with-local-storage/">Simple caching with local storage</a> left off. Check that out for context on how local storage can be used as a super simple cache, when requesting data from an API.
 
 In this article we will look at abstracting our request and caching logic into reusable React Hook components. Hooks are a really nice way to bundle up our complicated and confusing code into a package that we don't need to think about anymore, and can reuse across our application and other projects!
+
+<iframe
+  src="https://www.youtube.com/embed/KmdjxIvDPSA"
+  frameborder="0"
+  allowfullscreen
+></iframe>
+
+> This video goes through the same example as the blog, but may be more enjoyable for those that are visual learners/want some extra company!
 
 We have already been using the `useState` and `useEffect` hooks that are provided by React to simplify our data logic, but we can do so much more with our own custom hooks!
 
@@ -102,9 +110,9 @@ const useRequest = url => {
 export default useRequest
 ```
 
-This should look pretty familiar. We have a `data` variable that is being returned from our hook. Anytime we update the value of that variable - by using `setData` - it will trigger a re-render for anything consuming our hook. You can think of this as a `live` variable. Any component using that variable does not need to understand when or why it will change, but anytime it does change the component will be told to rerender with the new value. Magic!
+This should look pretty familiar. We have a `data` variable that is being returned from our hook. Anytime we update the value of that variable - by using `setData` - it will trigger a re-render for anything consuming our hook. You can think of this as a `live` variable. Any component using that variable does not need to understand when or why it will change, but anytime it does change the component will be told to re-render with the new value. Magic!
 
-`useEffect` is where we will add some logic for requesting fresh data from the api and updating our `data` variable with the response. We are giving it an empty array of dependencies `[]` so that this logic only runs when the hook is first consumed - meaning we are not requesting the data from the API over and over again, just once when our page is loaded. This is slightly different to the example in our previous article - where we were loading data based off a button click - but we don't want our users to have to wait for the page to be loaded and then click a button to see data. We can just give it to them as soon as we can!
+`useEffect` is where we will add some logic for requesting fresh data from the API and updating our `data` variable with the response. We are giving it an empty array of dependencies `[]` so that this logic only runs when the hook is first consumed - meaning we are not requesting the data from the API over and over again, just once when our page is loaded. This is slightly different to the example in our previous article - where we were loading data based off a button click - but we don't want our users to have to wait for the page to be loaded and then click a button to see data. We can just give it to them as soon as we can!
 
 Let's bring in axios, make a request for our fresh data and update the `data` value with the `response`.
 
@@ -147,7 +155,7 @@ const skaters = useRequest(url)
 
 Gosh, that is so much simpler! But now our component would need to check whether the `skaters` variable contained data before rendering it. Also, if we follow the `useRequest` logic, the `data` variable is initialised as `null`, and then its value is magically be updated to an array when the `response` comes back from the API. That will require some additional rendering logic in our `<Skaters />`component to determine whether our request is still waiting for the response (loading).
 
-Why don't we reactor our useRequest hook to provide this information, as determining the `loading` state of our `data` does feel like the responsibility of our request hook, rather than our rendering component. Plus it is super simple to do!
+Why don't we refactor our useRequest hook to provide this information, as determining the `loading` state of our `data` does feel like the responsibility of our request hook, rather than our rendering component. Plus it is super simple to do!
 
 ```js
 import { useState, useEffect } from 'react'
@@ -371,6 +379,6 @@ const Skaters = () => {
 export default Skaters
 ```
 
-Wow! Firstly, its a lot smaller, easier to read and the component doesn't need to know anything about caching or fetching logic. It simply uses our `useRequest` hook which handles the complexity and exposes our three different states: `loading`, `error` and `data`. This is a fairly common pattern for data fetching libraries - such as <a href="https://www.apollographql.com/docs/react/v3.0-beta/">Apollo Client</a> for GraphQL.
+Wow! Firstly, it's a lot smaller, easier to read and the component doesn't need to know anything about caching or fetching logic. It simply uses our `useRequest` hook which handles the complexity and exposes our three different states: `loading`, `error` and `data`. This is a fairly common pattern for data fetching libraries - such as <a href="https://www.apollographql.com/docs/react/v3.0-beta/">Apollo Client</a> for GraphQL.
 
 This example does not implement the ability to make a request without using the cache. This is because the cache is cool! You wanna use the cache! Forever and always! Right? I guess if you really want to implement the ability to switch off the cache, or just take a look at the full working example, check out the <a href="https://github.com/dijonmusters/thps-with-hooks/">THPS with hooks repo.</a>
