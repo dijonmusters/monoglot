@@ -37,13 +37,13 @@ const NextPrev = ({ next, previous }) =>
   (next || previous) && (
     <NavigationPanel>
       {previous && (
-        <NavLink href={previous.fields.slug}>
+        <NavLink to={previous.fields.slug}>
           <ChevronLeft />
           <Title>{previous.frontmatter.title}</Title>
         </NavLink>
       )}
       {next && (
-        <NavLink href={next.fields.slug} alignment="end" right>
+        <NavLink to={next.fields.slug} alignment="end" right>
           <Title>{next.frontmatter.title}</Title>
           <ChevronRight />
         </NavLink>

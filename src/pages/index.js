@@ -50,7 +50,7 @@ const renderArticle = ({
 
   return (
     <Article key={id}>
-      <Link href={slug}>
+      <Link to={slug}>
         <SameLine>
           <Title noWrap naked highlight>
             {title}

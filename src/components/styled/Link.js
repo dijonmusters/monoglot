@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-const Link = styled.a`
+const ClientLink = styled(Link)`
   color: ${props => (props.highlight ? props.theme.highlightColor : 'inherit')};
   text-decoration: none;
 
@@ -14,4 +15,4 @@ const Link = styled.a`
   }
 `
 
-export default Link
+export default ClientLink

@@ -40,7 +40,7 @@ const Nav = () => {
     <Navigation>
       <div>
         <h1>
-          <Link href="/">
+          <Link to="/">
             <Title>Monoglot</Title>
           </Link>
           <Small>A JavaScript blog</Small>
