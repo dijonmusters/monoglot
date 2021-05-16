@@ -1,0 +1,19 @@
+[[redirects]]
+  from = "/"
+  to = "https://jonmeyers.io/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/getting-a-job-in-the-tech-industry"
+  to = "https://jonmeyers.io/blog/getting-a-job-in-the-tech-industry"
+  status = 301
+
+[[redirects]]
+  from = "/articles/using-custom-hooks-to-reduce-component-complexity"
+  to = "https://jonmeyers.io/blog/using-custom-hooks-to-reduce-component-complexity"
+  status = 301
+
+[[redirects]]
+  from = "/articles/simple-request-caching-with-local-storage/"
+  to = "https://jonmeyers.io/blog/simple-caching-with-local-storage"
+  status = 301

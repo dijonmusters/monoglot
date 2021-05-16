@@ -89,6 +89,7 @@ module.exports = {
             `,
             output: '/rss.xml',
             title: 'Monoglot',
+            subtitle: 'A JavaScript blog',
           },
         ],
       },
