@@ -19,17 +19,6 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`300`, `400`, `500`, `600`, `700`],
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-feed-mdx`,
       options: {
         query: `

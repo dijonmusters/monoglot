@@ -2,6 +2,7 @@ import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   ${({ theme }) => css`
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
     html {
       box-sizing: border-box;
       font-size: 16px;
