@@ -20,6 +20,7 @@
     "date-fns": "^2.9.0",
     "gatsby": "^2.19.7",
     "gatsby-plugin-feed-mdx": "^1.0.1",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-layout": "^1.1.22",
     "gatsby-plugin-mdx": "^1.0.71",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
