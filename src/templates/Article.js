@@ -27,6 +27,7 @@ const Article = ({
     <>
       <Helmet>
         <title>Monoglot - {title}</title>
+        <link rel="canonical" href="https://jonmeyers.io/blog" />
       </Helmet>
       <Title naked>{title}</Title>
       <StyledDate>{formattedDate}</StyledDate>

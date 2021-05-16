@@ -79,6 +79,7 @@ const Index = ({
     <>
       <Helmet>
         <title>Monoglot - Blog list</title>
+        <link rel="canonical" href="https://jonmeyers.io/blog" />
       </Helmet>
       {releasedArticles.map(renderArticle)}
     </>
